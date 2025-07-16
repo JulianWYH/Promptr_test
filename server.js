@@ -29,6 +29,14 @@ console.log('Next.js app initialized');
 // Store game rooms in memory (in production, use Redis or database)
 const gameRooms = new Map();
 
+// Dynamic host configuration for API calls
+const getApiBaseUrl = () => {
+  if (process.env.NODE_ENV === 'production') {
+    return process.env.RENDER_EXTERNAL_URL || `https://${process.env.RENDER_SERVICE_NAME}.onrender.com`;
+  }
+  return `http://localhost:${process.env.PORT || 4000}`;
+};
+
 console.log('About to prepare Next.js app...');
 
 // Helper function to ensure only one host per room
@@ -113,7 +121,9 @@ app.prepare().then(() => {
 
   const io = new Server(server, {
     cors: {
-      origin: "*",
+      origin: process.env.NODE_ENV === 'production' 
+        ? [process.env.RENDER_EXTERNAL_URL || "https://*.onrender.com"]
+        : "*",
       methods: ["GET", "POST"]
     },
     // Add connection stability settings
@@ -279,7 +289,7 @@ app.prepare().then(() => {
         
         console.log(`[START-GAME] Fetching target image from Unsplash...`);
         // Get random image from Unsplash API
-        const unsplashRes = await fetch(`http://localhost:4000/api/unsplash`);
+        const unsplashRes = await fetch(`${getApiBaseUrl()}/api/unsplash`);
         const unsplashData = await unsplashRes.json();
         
         if (unsplashData.url) {
@@ -288,7 +298,7 @@ app.prepare().then(() => {
           
           // Get description
           console.log(`[START-GAME] Getting image description from Gemini...`);
-          const describeRes = await fetch(`http://localhost:4000/api/geminidescribe`, {
+          const describeRes = await fetch(`${getApiBaseUrl()}/api/geminidescribe`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ imageUrl: unsplashData.url })
@@ -433,7 +443,7 @@ app.prepare().then(() => {
           console.log(`[CALCULATE-SCORES] Submission description: "${submission.description}"`);
           console.log(`[CALCULATE-SCORES] Target description: "${room.targetDescription}"`);
           
-          const compareRes = await fetch(`http://localhost:4000/api/minilm`, {
+          const compareRes = await fetch(`${getApiBaseUrl()}/api/minilm`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -521,7 +531,7 @@ app.prepare().then(() => {
             const fetch = (await import('node-fetch')).default;
             
             console.log(`[NEXT-ROUND] Calling Unsplash API...`);
-            const unsplashRes = await fetch(`http://localhost:4000/api/unsplash`);
+            const unsplashRes = await fetch(`${getApiBaseUrl()}/api/unsplash`);
             const unsplashData = await unsplashRes.json();
             
             if (unsplashData.url) {
@@ -529,7 +539,7 @@ app.prepare().then(() => {
               console.log(`[NEXT-ROUND] New target image: ${room.targetImage}`);
               
               console.log(`[NEXT-ROUND] Calling Gemini describe API...`);
-              const describeRes = await fetch(`http://localhost:4000/api/geminidescribe`, {
+              const describeRes = await fetch(`${getApiBaseUrl()}/api/geminidescribe`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ imageUrl: unsplashData.url })
@@ -566,8 +576,12 @@ app.prepare().then(() => {
   server.listen(port, '0.0.0.0', (err) => {
     if (err) throw err;
     console.log(`> Ready on http://localhost:${port}`);
-    console.log(`> Network: http://192.168.1.13:${port}`);
-    console.log(`> Other devices can connect using: http://192.168.1.13:${port}`);
+    if (process.env.NODE_ENV !== 'production') {
+      console.log(`> Network: http://192.168.1.13:${port}`);
+      console.log(`> Other devices can connect using: http://192.168.1.13:${port}`);
+    } else {
+      console.log(`> Production server running on port ${port}`);
+    }
   });
 }).catch((error) => {
   console.error('Failed to prepare Next.js app:', error);
