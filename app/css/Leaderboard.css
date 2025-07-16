@@ -1,0 +1,573 @@
+/* Cross-browser compatible Leaderboard styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@400;700&display=swap');
+
+/* Main leaderboard container */
+.leaderboardPage {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: clamp(15px, 3vw, 20px);
+  
+  /* Better background support */
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  /* Cross-browser box model */
+  box-sizing: border-box;
+}
+
+.leaderboardContainer {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: clamp(30px, 6vw, 50px);
+  max-width: clamp(500px, 90vw, 900px);
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  
+  /* Better backdrop support */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  /* Cross-browser box model */
+  box-sizing: border-box;
+}
+
+/* Header styles */
+.leaderboardHeader {
+  text-align: center;
+  margin-bottom: clamp(25px, 5vw, 40px);
+}
+
+.leaderboardHeader h1 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: clamp(10px, 2vw, 15px);
+  font-family: 'Alexandria', sans-serif;
+  font-weight: 700;
+  
+  /* Fallback for browsers that don't support background-clip */
+  color: #667eea;
+}
+
+/* Better support for gradient text */
+@supports (-webkit-background-clip: text) {
+  .leaderboardHeader h1 {
+    color: transparent;
+  }
+}
+
+.leaderboardHeader p {
+  color: #666;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  margin: 0;
+}
+
+/* Leaderboard table styles */
+.leaderboardTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: clamp(20px, 4vw, 30px);
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboardTable thead {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+}
+
+.leaderboardTable th {
+  padding: clamp(12px, 3vw, 20px);
+  text-align: left;
+  font-weight: bold;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  
+  /* Better text alignment */
+  vertical-align: middle;
+}
+
+.leaderboardTable th:first-child {
+  text-align: center;
+  width: clamp(60px, 15vw, 80px);
+}
+
+.leaderboardTable th:last-child {
+  text-align: right;
+  width: clamp(80px, 20vw, 120px);
+}
+
+.leaderboardTable tbody tr {
+  transition: background-color 0.3s ease;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.leaderboardTable tbody tr:hover {
+  background-color: #f7fafc;
+}
+
+.leaderboardTable tbody tr:last-child {
+  border-bottom: none;
+}
+
+.leaderboardTable td {
+  padding: clamp(12px, 3vw, 18px);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  vertical-align: middle;
+}
+
+.leaderboardTable td:first-child {
+  text-align: center;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.leaderboardTable td:last-child {
+  text-align: right;
+  font-weight: bold;
+  color: #2d3748;
+}
+
+/* Position badges */
+.position {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(30px, 6vw, 40px);
+  height: clamp(30px, 6vw, 40px);
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: clamp(0.8rem, 1.8vw, 1rem);
+  color: white;
+}
+
+.position.first {
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  color: #333;
+  box-shadow: 0 3px 10px rgba(255, 215, 0, 0.4);
+}
+
+.position.second {
+  background: linear-gradient(45deg, #c0c0c0, #e5e5e5);
+  color: #333;
+  box-shadow: 0 3px 10px rgba(192, 192, 192, 0.4);
+}
+
+.position.third {
+  background: linear-gradient(45deg, #cd7f32, #daa520);
+  color: white;
+  box-shadow: 0 3px 10px rgba(205, 127, 50, 0.4);
+}
+
+.position.other {
+  background: #718096;
+}
+
+/* Player info styles */
+.playerInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: clamp(10px, 2vw, 15px);
+}
+
+.playerAvatar {
+  width: clamp(35px, 7vw, 45px);
+  height: clamp(35px, 7vw, 45px);
+  border-radius: 50%;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: clamp(0.8rem, 1.8vw, 1rem);
+}
+
+.playerName {
+  font-weight: 600;
+  color: #2d3748;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+}
+
+.playerStats {
+  color: #718096;
+  font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+  margin-top: 2px;
+}
+
+/* Score display */
+.score {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: bold;
+  color: #667eea;
+}
+
+.scoreLabel {
+  color: #718096;
+  font-size: clamp(0.7rem, 1.6vw, 0.8rem);
+  font-weight: normal;
+  display: block;
+  margin-top: 2px;
+}
+
+/* Empty state */
+.emptyLeaderboard {
+  text-align: center;
+  padding: clamp(40px, 8vw, 60px);
+  color: #718096;
+}
+
+.emptyLeaderboard h3 {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  margin-bottom: clamp(10px, 2vw, 15px);
+  color: #4a5568;
+}
+
+.emptyLeaderboard p {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  margin-bottom: clamp(20px, 4vw, 30px);
+}
+
+/* Action buttons */
+.leaderboardActions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: clamp(15px, 3vw, 20px);
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.actionBtn {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: clamp(12px, 2.5vw, 15px) clamp(20px, 4vw, 30px);
+  border-radius: 25px;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: clamp(120px, 20vw, 150px);
+  
+  /* Cross-browser compatibility */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  
+  /* Better touch interaction */
+  touch-action: manipulation;
+  
+  /* Prevent text selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.actionBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.actionBtn.secondary {
+  background: linear-gradient(45deg, #6c757d, #495057);
+}
+
+.actionBtn.secondary:hover {
+  box-shadow: 0 10px 20px rgba(108, 117, 125, 0.3);
+}
+
+/* Filters and search */
+.leaderboardFilters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: clamp(20px, 4vw, 30px);
+  gap: clamp(10px, 2vw, 15px);
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.searchInput {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-width: clamp(200px, 30vw, 250px);
+  padding: clamp(10px, 2vw, 12px) clamp(12px, 2.5vw, 15px);
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  transition: all 0.3s ease;
+  
+  /* Cross-browser compatibility */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.filterSelect {
+  padding: clamp(10px, 2vw, 12px);
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  background: white;
+  cursor: pointer;
+  min-width: clamp(120px, 20vw, 150px);
+  
+  /* Cross-browser compatibility */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Pagination */
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: clamp(8px, 2vw, 12px);
+  margin-top: clamp(20px, 4vw, 30px);
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.paginationBtn {
+  padding: clamp(8px, 2vw, 10px) clamp(12px, 2.5vw, 15px);
+  border: 2px solid #e2e8f0;
+  background: white;
+  color: #4a5568;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+  min-width: 40px;
+  min-height: 40px;
+  
+  /* Cross-browser compatibility */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.paginationBtn:hover:not(:disabled) {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.paginationBtn.active {
+  background: #667eea;
+  border-color: #667eea;
+  color: white;
+}
+
+.paginationBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .leaderboardContainer {
+    padding: 20px 15px;
+  }
+  
+  .leaderboardTable {
+    font-size: 0.9rem;
+  }
+  
+  .leaderboardTable th,
+  .leaderboardTable td {
+    padding: 10px 8px;
+  }
+  
+  .playerInfo {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .leaderboardFilters {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+  
+  .searchInput,
+  .filterSelect {
+    width: 100%;
+    min-width: auto;
+  }
+  
+  .leaderboardActions {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  
+  .actionBtn {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .leaderboardContainer {
+    padding: 15px 10px;
+  }
+  
+  .leaderboardTable th,
+  .leaderboardTable td {
+    padding: 8px 6px;
+  }
+  
+  .playerAvatar {
+    width: 30px;
+    height: 30px;
+    font-size: 0.7rem;
+  }
+  
+  .position {
+    width: 25px;
+    height: 25px;
+    font-size: 0.7rem;
+  }
+  
+  .pagination {
+    gap: 5px;
+  }
+  
+  .paginationBtn {
+    padding: 6px 8px;
+    min-width: 32px;
+    min-height: 32px;
+    font-size: 0.8rem;
+  }
+}
+
+/* High DPI displays */
+@media screen and (-webkit-min-device-pixel-ratio: 2), 
+       screen and (min-resolution: 192dpi) {
+  .leaderboardTable {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Print styles */
+@media print {
+  .leaderboardPage {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .leaderboardContainer {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  
+  .leaderboardActions,
+  .leaderboardFilters,
+  .pagination {
+    display: none;
+  }
+  
+  .leaderboardTable thead {
+    background: #f5f5f5 !important;
+    color: black !important;
+  }
+}
+
+/* Accessibility - Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Accessibility - High contrast */
+@media (prefers-contrast: high) {
+  .leaderboardTable,
+  .actionBtn,
+  .searchInput,
+  .filterSelect {
+    border: 2px solid currentColor;
+  }
+}

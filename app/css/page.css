@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@400;700&display=swap');
+
+/* Main page container with responsive design */
+.page {
+  margin: clamp(1rem, 5vw, 5rem);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: clamp(15px, 3vw, 20px);
+  
+  /* Better responsive behavior */
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  
+  /* Cross-browser compatibility */
+  box-sizing: border-box;
+}
+
+.splashImg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  width: 100%;
+  max-width: 600px;
+}
+
+.imageGenerate {
+  padding: clamp(8px, 2vw, 15px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  
+  /* Responsive behavior */
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: clamp(10px, 2vw, 15px);
+}
+
+.input {
+  padding: clamp(10px, 2.5vw, 15px);
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  border: 2px solid #e1e5e9;
+  border-radius: 10px;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-family: inherit;
+  transition: all 0.3s ease;
+  
+  /* Cross-browser compatibility */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.button {
+  padding: clamp(10px, 2.5vw, 15px) clamp(20px, 4vw, 30px);
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 44px;
+  max-width: 200px;
+  margin: 0 auto;
+  
+  /* Cross-browser compatibility */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  
+  /* Better touch interaction */
+  touch-action: manipulation;
+  
+  /* Prevent text selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.imagePreview {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  margin: clamp(1rem, 3vw, 2rem) auto;
+  padding: clamp(15px, 3vw, 20px);
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.imagePreview img {
+  width: 100%;
+  max-width: clamp(300px, 50vw, 400px);
+  height: auto;
+  max-height: clamp(300px, 50vw, 400px);
+  object-fit: contain;
+  display: block;
+  margin: 0 auto clamp(10px, 2vw, 15px) auto;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.imagePreview .description {
+  width: 100%;
+  max-width: clamp(300px, 50vw, 400px);
+  margin: 0 auto;
+  text-align: center;
+  color: #555;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  line-height: 1.4;
+  padding: clamp(10px, 2vw, 15px);
+}
+
+/* Responsive design for different screen sizes */
+@media screen and (max-width: 768px) {
+  .page {
+    margin: clamp(0.5rem, 2vw, 2rem);
+    padding: 15px;
+  }
+  
+  .imageGenerate {
+    padding: 10px;
+  }
+  
+  .input, .button {
+    width: 100%;
+    max-width: none;
+  }
+  
+  .imagePreview {
+    margin: 1rem 0;
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .page {
+    margin: 0.5rem;
+    padding: 10px;
+  }
+  
+  .imagePreview {
+    padding: 10px;
+  }
+  
+  .imagePreview img {
+    max-width: 280px;
+    max-height: 280px;
+  }
+  
+  .imagePreview .description {
+    max-width: 280px;
+    padding: 8px;
+  }
+}
+
+/* Landscape orientation for mobile */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .page {
+    margin: 0.5rem;
+    min-height: auto;
+  }
+  
+  .imagePreview img {
+    max-height: 200px;
+  }
+}
+
+/* High DPI displays */
+@media screen and (-webkit-min-device-pixel-ratio: 2), 
+       screen and (min-resolution: 192dpi) {
+  .imagePreview img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Print styles */
+@media print {
+  .page {
+    margin: 0;
+    background: white !important;
+  }
+  
+  .button {
+    display: none;
+  }
+  
+  .imagePreview {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
+
+

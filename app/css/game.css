@@ -1,0 +1,253 @@
+/* Game Lobby Styles */
+.gameLobby {
+  min-height: 100vh;
+  background: url('/game-background.svg') center center / cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(15px, 3vw, 20px);
+  
+  /* Better background attachment for all browsers */
+  background-attachment: fixed;
+}
+
+.gameContent {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: clamp(20px, 5vw, 40px);
+  max-width: clamp(600px, 90vw, 800px);
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  
+  /* Better backdrop filter support */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.gameHeader h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+  
+  /* Fallback for browsers that don't support background-clip */
+  color: #667eea;
+}
+
+/* Better support for gradient text */
+@supports (-webkit-background-clip: text) {
+  .gameHeader h1 {
+    color: transparent;
+  }
+}
+
+.gameHeader h2 {
+  color: #555;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  margin-bottom: 10px;
+}
+
+.gameHeader p {
+  color: #777;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  margin-bottom: clamp(20px, 4vw, 30px);
+}
+
+.gameOptions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(20px, 4vw, 30px);
+  margin-bottom: clamp(20px, 4vw, 30px);
+}
+
+.gameOptionCard {
+  background: white;
+  border-radius: 15px;
+  padding: clamp(20px, 4vw, 30px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* Better hover effects */
+  cursor: pointer;
+}
+
+.gameOptionCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.gameOptionCard h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.gameOptionCard p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.gameBtn {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: clamp(12px, 2.5vw, 15px) clamp(20px, 4vw, 30px);
+  border-radius: 25px;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: clamp(120px, 20vw, 150px);
+  min-height: 44px; /* Better touch targets */
+  
+  /* Better button states */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+.gameBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.gameBtn:active {
+  transform: translateY(0);
+}
+
+.gameBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.gameBtn.secondary {
+  background: #6c757d;
+}
+
+.gameBtn.secondary:hover {
+  box-shadow: 0 10px 20px rgba(108, 117, 125, 0.3);
+}
+
+.playerSetup {
+  display: flex;
+  justify-content: center;
+}
+
+.setupCard {
+  background: white;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.setupCard h3 {
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.inputGroup {
+  margin-bottom: clamp(15px, 3vw, 20px);
+  text-align: left;
+}
+
+.inputGroup label {
+  display: block;
+  color: #555;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.inputGroup input {
+  width: 100%;
+  padding: clamp(12px, 2.5vw, 15px);
+  border: 2px solid #e1e5e9;
+  border-radius: 10px;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  
+  /* Better input styling */
+  background-color: #fff;
+  min-height: 44px; /* Better touch targets */
+}
+
+.inputGroup input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.setupButtons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.backBtn {
+  margin-top: 30px;
+}
+
+.backBtn button {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.backBtn button:hover {
+  background: #5a6268;
+}
+
+.gameRules {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: clamp(20px, 4vw, 25px);
+  margin-top: clamp(20px, 4vw, 30px);
+  text-align: left;
+}
+
+.gameRules h4 {
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+.gameRules ul {
+  list-style: none;
+  padding: 0;
+}
+
+.gameRules li {
+  padding: clamp(6px, 1.5vw, 8px) 0;
+  color: #555;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .gameOptions {
+    grid-template-columns: 1fr;
+  }
+  
+  .gameContent {
+    padding: 20px;
+  }
+  
+  .gameHeader h1 {
+    font-size: 2rem;
+  }
+  
+  .setupButtons {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,818 @@
+/* login.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@400;700&display=swap');
+
+
+
+.TitlePage {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Flexbox for better centering across browsers */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentBx {
+    /* Remove these two: */
+    /* justify-content: center; */
+    /* min-height: 100vh; */
+    min-height: calc(100vh - 150px);
+    /* example: adjust 150px to your .cloudPane height minus overlap */
+    /* or fine-tune to -120px or -150px */
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(#4A4A4A, #859fa7, #B3DAE6, white);
+    
+    /* Better spacing for different screen sizes */
+    gap: 2rem;
+    
+    /* Responsive padding */
+    padding-top: clamp(20px, 5vh, 60px);
+    padding-bottom: clamp(20px, 5vh, 60px);
+    padding-left: clamp(15px, 3vw, 40px);
+    padding-right: clamp(15px, 3vw, 40px);
+}
+
+.logoImg {
+    width: clamp(100px, 15vw, 150px);
+    height: clamp(100px, 15vw, 150px);
+    object-fit: contain;
+}
+
+.logoNameCtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(10px, 2vw, 20px);
+    margin-bottom: clamp(15px, 3vh, 30px);
+    flex-wrap: wrap;
+}
+
+.logoNameCtn2 {
+    position: relative;
+    border: 3px;
+    padding: 0.6rem 0.725rem;
+    border-radius: 25px;
+    background-color: rgba(79, 52, 38, 1);
+    /* 60% opacity */
+    z-index: 99;
+
+}
+
+.LogoName {
+    position: relative;
+    border: 3px;
+    padding: 10px 77px;
+    border-radius: 25px;
+    background-color: #994B35;
+    color: var(--Cresent-Moon, #F7F0D8);
+    text-align: center;
+    font-family: 'Alexandria', sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.7);
+    z-index: 99;
+
+}
+
+@keyframes leafBlow1 {
+  0%   { transform: rotate(0deg) translateX(0); }
+  20%  { transform: rotate(-10deg) translateX(-5px); }
+  40%  { transform: rotate(5deg) translateX(10px); }
+  60%  { transform: rotate(-3deg) translateX(-8px); }
+  80%  { transform: rotate(8deg) translateX(6px); }
+  100% { transform: rotate(0deg) translateX(0); }
+}
+
+/* Leaf 2 Animation - different timing/movement */
+@keyframes leafBlow2 {
+  0%   { transform: rotate(0deg) translateX(0); }
+  10%  { transform: rotate(5deg) translateX(8px); }
+  30%  { transform: rotate(-7deg) translateX(-10px); }
+  50%  { transform: rotate(10deg) translateX(5px); }
+  70%  { transform: rotate(-5deg) translateX(-6px); }
+  100% { transform: rotate(0deg) translateX(0); }
+}
+
+.imgleaf1 {
+  position: relative;
+  left: 50px;
+  top: -15px;
+  width: 125px;
+  rotate: -40deg;
+  height: 125px;
+  z-index: 0;
+  animation: leafBlow1 6s ease-in-out infinite;
+}
+
+.imgleaf2 {
+  position: relative;
+  left: -50px;
+  width: 125px;
+  height: 125px;
+  z-index: 0;
+  animation: leafBlow2 6s ease-in-out infinite;
+}
+
+.OptionsBx {
+    display: flex;
+    flex-direction: row;
+    gap: clamp(1rem, 3vw, 2rem);
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.Login,
+.Play,
+.FunGame {
+    position: relative;
+    border: 3px solid transparent;
+    padding: clamp(15px, 3vw, 20px) clamp(30px, 6vw, 77px);
+    min-width: clamp(160px, 20vw, 200px);
+    border-radius: 25px;
+    background-color: #994B35;
+    color: var(--Cresent-Moon, #F7F0D8);
+    text-align: center;
+    font-family: 'Alexandria', sans-serif;
+    font-size: clamp(18px, 3vw, 25px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.48px;
+    box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.7);
+    z-index: 99;
+    
+    /* Better button interaction */
+    transition: all 0.3s ease;
+    cursor: pointer;
+    
+    /* Prevent text selection */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    
+    /* Better touch targets for mobile */
+    min-height: 44px;
+}
+
+.FunGame {
+    background-color: #35994B;
+    padding: clamp(12px, 2.5vw, 15px) clamp(25px, 5vw, 30px);
+    font-size: clamp(16px, 2.5vw, 18px);
+    min-width: clamp(140px, 18vw, 180px);
+}
+
+.Login:hover,
+.Play:hover,
+.FunGame:hover {
+    background-color: #EABF86;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.7), 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.FunGame:hover {
+    background-color: #86EABF;
+}
+
+.LoginBx,
+.PlayBx,
+.FunGameBx {
+    position: relative;
+    border: 3px solid transparent;
+    padding: clamp(0.4rem, 1vw, 0.5rem);
+    border-radius: 25px;
+    background-color: rgba(79, 52, 38, 0.85);
+    z-index: 99;
+    
+    /* Smooth transitions */
+    transition: all 0.3s ease;
+}
+
+/* Cloud and animation improvements for cross-browser compatibility */
+.cloudPane {
+    position: relative;
+    width: 100vw;
+    height: clamp(200px, 30vh, 300px);
+    overflow: hidden;
+    
+    /* Better performance across browsers */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Responsive cloud sizes */
+.bigCloud {
+    position: absolute;
+    width: clamp(80px, 12vw, 150px);
+    height: clamp(50px, 8vw, 100px);
+    
+    /* Better animation performance */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
+}
+
+/*circle position*/
+#circ1 {
+    z-index: 1;
+}
+
+#circ2 {
+    top: 50px;
+    left: -40px;
+}
+
+#circ3 {
+    top: 50px;
+    left: -120px;
+}
+
+#circ4 {
+    top: 30px;
+    left: -60px;
+}
+
+#circ5 {
+    top: 100px;
+    left: -150px;
+}
+
+#circ6 {
+    top: 100px;
+    left: 130px;
+}
+
+/*circle shadows*/
+#circ1shadow,
+#circ2shadow,
+#circ3shadow,
+#circ5shadow,
+#circ6shadow {
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 2;
+    -webkit-transform: scale(.9, -.9);
+    -mox-transform: scale(.9, -.9);
+    transform: scale(.9, -.9);
+
+}
+
+#circ1shadow {
+    background: -webkit-radial-gradient(48% 64%, circle, rgba(204, 0, 0, 0) 110px, #9BBBC4 50px);
+    background: -moz-radial-gradient(48% 64%, circle, rgba(204, 0, 0, 0) 110px, #9BBBC4 50px);
+    background: radial-gradient(48% 64%, circle, rgba(204, 0, 0, 0) 110px, #9BBBC4 50px);
+    top: 2px;
+    z-index: 3;
+}
+
+#circ2shadow {
+    background: -webkit-radial-gradient(58% 61%, circle, rgba(204, 0, 0, 0) 82px, #9BBBC4 50px);
+    background: -moz-radial-gradient(58% 61%, circle, rgba(204, 0, 0, 0) 82px, #9BBBC4 50px);
+    background: radial-gradient(58% 61%, circle, rgba(204, 0, 0, 0) 82px, #9BBBC4 50px);
+    top: 0px;
+}
+
+#circ3shadow {
+    background: -webkit-radial-gradient(54% 60%, circle, rgba(204, 0, 0, 0) 80px, #9BBBC4 50px);
+    background: -moz-radial-gradient(54% 60%, circle, rgba(204, 0, 0, 0) 80px, #9BBBC4 50px);
+    background: radial-gradient(54% 60%, circle, rgba(204, 0, 0, 0) 80px, #9BBBC4 50px);
+    top: 8px;
+    -webkit-transform: scale(.8, -.8);
+    -moz-transform: scale(.8, -.8);
+    transform: scale(.8, -.8);
+}
+
+#circ5shadow {
+    background: -webkit-radial-gradient(57% 61%, circle, rgba(204, 0, 0, 0) 53px, #9BBBC4 40px);
+    background: -moz-radial-gradient(57% 61%, circle, rgba(204, 0, 0, 0) 53px, #9BBBC4 40px);
+    background: radial-gradient(57% 61%, circle, rgba(204, 0, 0, 0) 53px, #9BBBC4 40px);
+    top: 0px;
+}
+
+#circ6shadow {
+    background: -webkit-radial-gradient(44% 65%, circle, rgba(204, 0, 0, 0) 53px, #9BBBC4 40px);
+    background: -moz-radial-gradient(44% 65%, circle, rgba(204, 0, 0, 0) 53px, #9BBBC4 40px);
+    background: radial-gradient(44% 65%, circle, rgba(204, 0, 0, 0) 53px, #9BBBC4 40px);
+    top: 0px;
+}
+
+/*style the clouds*/
+.bigCloud {
+    position: absolute;
+    max-width: 100vw;
+    /* Optional adjustments */
+    left: 0;
+    /* or adjust based on animation */
+}
+
+/*style circles that make up clouds*/
+.smallCircle {
+    height: 100px;
+    width: 100px;
+    background: white;
+    border-radius: 100%;
+    position: absolute;
+}
+
+.middleCircle {
+    height: 150px;
+    width: 150px;
+    background: white;
+    border-radius: 100%;
+    position: absolute;
+}
+
+.largeCircle {
+    height: 200px;
+    width: 200px;
+    background: white;
+    border-radius: 100%;
+    position: absolute;
+}
+
+/*Stars*/
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    width: clamp(2px, 0.5vw, 4px);
+    height: clamp(2px, 0.5vw, 4px);
+    background: white;
+    border-radius: 50%;
+    
+    /* Cross-browser animation */
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+/* Leaf animations with better performance */
+.leaf1, .leaf2 {
+    /* Better animation performance */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Animation keyframes for cross-browser support */
+@keyframes leafBlow1 {
+    0%, 100% {
+        transform: rotate(0deg) translateY(0px);
+        -webkit-transform: rotate(0deg) translateY(0px);
+    }
+    50% {
+        transform: rotate(5deg) translateY(-10px);
+        -webkit-transform: rotate(5deg) translateY(-10px);
+    }
+}
+
+@keyframes leafBlow2 {
+    0%, 100% {
+        transform: rotate(0deg) translateY(0px);
+        -webkit-transform: rotate(0deg) translateY(0px);
+    }
+    50% {
+        transform: rotate(-5deg) translateY(-8px);
+        -webkit-transform: rotate(-5deg) translateY(-8px);
+    }
+}
+
+@keyframes cloudMove {
+    0% {
+        transform: translateX(-10px);
+        -webkit-transform: translateX(-10px);
+    }
+    50% {
+        transform: translateX(10px);
+        -webkit-transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(-10px);
+        -webkit-transform: translateX(-10px);
+    }
+}
+
+@keyframes starTwinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+    }
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/*put animated cloud shadows at the bottom of the page*/
+
+/* Additional responsive breakpoints and cross-browser improvements */
+
+/* Extra responsive design for various screen sizes */
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+  .contentBx {
+    max-width: 1100px;
+    padding-left: clamp(20px, 4vw, 50px);
+    padding-right: clamp(20px, 4vw, 50px);
+  }
+  
+  .OptionsBx {
+    max-width: 900px;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .contentBx {
+    max-width: 900px;
+    padding-left: clamp(20px, 3vw, 40px);
+    padding-right: clamp(20px, 3vw, 40px);
+  }
+  
+  .OptionsBx {
+    max-width: 700px;
+  }
+  
+  .Login, .Play, .FunGame {
+    min-width: clamp(140px, 18vw, 180px);
+    padding: clamp(12px, 2.5vw, 15px) clamp(25px, 5vw, 30px);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .TitlePage {
+    background-size: cover;
+    background-position: center center;
+  }
+  
+  .contentBx {
+    max-width: 700px;
+    padding: clamp(20px, 4vw, 30px);
+  }
+  
+  .OptionsBx {
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 400px;
+  }
+  
+  .Login, .Play, .FunGame {
+    width: 100%;
+    max-width: 350px;
+    min-width: 200px;
+  }
+  
+  .logoImg {
+    width: clamp(80px, 12vw, 120px);
+    height: clamp(80px, 12vw, 120px);
+  }
+  
+  .LogoName {
+    font-size: clamp(18px, 4vw, 22px);
+    padding: 8px 50px;
+  }
+  
+  .cloudPane {
+    height: clamp(180px, 25vh, 250px);
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .contentBx {
+    min-height: calc(100vh - 120px);
+    max-width: 500px;
+    padding: clamp(15px, 3vw, 25px);
+  }
+  
+  .OptionsBx {
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 350px;
+  }
+  
+  .Login, .Play, .FunGame {
+    width: 100%;
+    max-width: 300px;
+    min-width: 180px;
+    font-size: clamp(16px, 3.5vw, 20px);
+  }
+  
+  .logoNameCtn {
+    flex-direction: column;
+    gap: clamp(8px, 2vw, 15px);
+  }
+  
+  .imgleaf1, .imgleaf2 {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .imgleaf1 {
+    left: 30px;
+    top: -10px;
+  }
+  
+  .imgleaf2 {
+    left: -30px;
+  }
+}
+
+/* Enhanced mobile styles */
+@media screen and (max-width: 575px) {
+  .TitlePage {
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  .contentBx {
+    min-height: calc(100vh - 100px);
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 15px 10px;
+    gap: 1.5rem;
+  }
+  
+  .logoNameCtn {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .logoImg {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .LogoName {
+    font-size: 16px;
+    padding: 6px 25px;
+    letter-spacing: 0.3px;
+  }
+  
+  .logoNameCtn2 {
+    padding: 0.4rem 0.5rem;
+  }
+  
+  .OptionsBx {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .Login, .Play, .FunGame {
+    width: 100%;
+    max-width: 260px;
+    min-width: 180px;
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+  
+  .FunGame {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+  
+  .LoginBx, .PlayBx, .FunGameBx {
+    padding: 0.3rem;
+  }
+  
+  .imgleaf1, .imgleaf2 {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .imgleaf1 {
+    left: 20px;
+    top: -5px;
+  }
+  
+  .imgleaf2 {
+    left: -20px;
+  }
+  
+  .cloudPane {
+    height: clamp(120px, 20vh, 180px);
+  }
+  
+  .bigCloud {
+    width: clamp(60px, 10vw, 100px);
+    height: clamp(40px, 7vw, 70px);
+  }
+}
+
+/* Very small screens */
+@media screen and (max-width: 360px) {
+  .contentBx {
+    padding: 10px 8px;
+    gap: 1rem;
+  }
+  
+  .logoImg {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .LogoName {
+    font-size: 14px;
+    padding: 5px 20px;
+  }
+  
+  .OptionsBx {
+    max-width: 240px;
+  }
+  
+  .Login, .Play, .FunGame {
+    max-width: 220px;
+    min-width: 160px;
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+  
+  .FunGame {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+  
+  .imgleaf1, .imgleaf2 {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Landscape orientation for small screens */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .TitlePage {
+    min-height: 100vh;
+  }
+  
+  .contentBx {
+    min-height: calc(100vh - 60px);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 1rem;
+  }
+  
+  .logoNameCtn {
+    margin-bottom: 10px;
+  }
+  
+  .logoImg {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .LogoName {
+    font-size: 14px;
+    padding: 5px 30px;
+  }
+  
+  .OptionsBx {
+    flex-direction: row;
+    gap: 0.8rem;
+  }
+  
+  .Login, .Play, .FunGame {
+    min-width: 120px;
+    padding: 8px 15px;
+    font-size: 13px;
+  }
+  
+  .FunGame {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+  
+  .cloudPane {
+    height: 100px;
+  }
+  
+  .imgleaf1, .imgleaf2 {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Better button focus states for accessibility */
+.Login:focus, .Play:focus, .FunGame:focus {
+  outline: 3px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .Login, .Play, .FunGame {
+    border: 2px solid currentColor;
+  }
+  
+  .LogoName {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Reduce animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .imgleaf1, .imgleaf2 {
+    animation: none;
+  }
+  
+  .stars .star {
+    animation: none;
+  }
+  
+  .Login, .Play, .FunGame {
+    transition: none;
+  }
+  
+  .Login:hover, .Play:hover, .FunGame:hover {
+    transform: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .TitlePage {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .contentBx {
+    background: white !important;
+    box-shadow: none;
+  }
+  
+  .Login, .Play, .FunGame {
+    background: white !important;
+    color: black !important;
+    border: 1px solid black;
+  }
+  
+  .cloudPane, .imgleaf1, .imgleaf2, .stars {
+    display: none;
+  }
+}
+
+/* Fix for older browser compatibility */
+@supports not (display: flex) {
+  .TitlePage {
+    display: table;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .contentBx {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
+  
+  .OptionsBx {
+    display: inline-block;
+  }
+  
+  .Login, .Play, .FunGame {
+    display: inline-block;
+    margin: 10px;
+  }
+}
+
+/* Fix for older CSS custom properties support */
+@supports not (color: var(--color)) {
+  .LogoName {
+    color: #F7F0D8;
+  }
+}
