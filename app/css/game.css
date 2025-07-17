@@ -11,7 +11,7 @@
   background-attachment: fixed;
 }
 
-.gameContent {
+.lobbyGameContent {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
   padding: clamp(20px, 5vw, 40px);
@@ -25,7 +25,7 @@
   -webkit-backdrop-filter: blur(10px);
 }
 
-.gameHeader h1 {
+.lobbyGameHeader h1 {
   font-size: clamp(2rem, 6vw, 3rem);
   background: linear-gradient(45deg, #667eea, #764ba2);
   -webkit-background-clip: text;
@@ -40,24 +40,24 @@
 
 /* Better support for gradient text */
 @supports (-webkit-background-clip: text) {
-  .gameHeader h1 {
+  .lobbyGameHeader h1 {
     color: transparent;
   }
 }
 
-.gameHeader h2 {
+.lobbyGameHeader h2 {
   color: #555;
   font-size: clamp(1rem, 3vw, 1.5rem);
   margin-bottom: 10px;
 }
 
-.gameHeader p {
+.lobbyGameHeader p {
   color: #777;
   font-size: clamp(0.9rem, 2.5vw, 1.1rem);
   margin-bottom: clamp(20px, 4vw, 30px);
 }
 
-.gameOptions {
+.lobbyGameOptions {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: clamp(20px, 4vw, 30px);
@@ -90,7 +90,7 @@
   margin-bottom: 20px;
 }
 
-.gameBtn {
+.lobbyGameBtn {
   background: linear-gradient(45deg, #667eea, #764ba2);
   color: white;
   border: none;
@@ -109,26 +109,26 @@
   -moz-user-select: none;
 }
 
-.gameBtn:hover {
+.lobbyGameBtn:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
 }
 
-.gameBtn:active {
+.lobbyGameBtn:active {
   transform: translateY(0);
 }
 
-.gameBtn:disabled {
+.lobbyGameBtn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
 }
 
-.gameBtn.secondary {
+.lobbyGameBtn.secondary {
   background: #6c757d;
 }
 
-.gameBtn.secondary:hover {
+.lobbyGameBtn.secondary:hover {
   box-shadow: 0 10px 20px rgba(108, 117, 125, 0.3);
 }
 
@@ -235,15 +235,15 @@
 }
 
 @media (max-width: 768px) {
-  .gameOptions {
+  .lobbyGameOptions {
     grid-template-columns: 1fr;
   }
   
-  .gameContent {
+  .lobbyGameContent {
     padding: 20px;
   }
   
-  .gameHeader h1 {
+  .lobbyGameHeader h1 {
     font-size: 2rem;
   }
   

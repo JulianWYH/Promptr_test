@@ -1,5 +1,13 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Alexandria } from "next/font/google";
 import "./css/globals.css";
+
+// Alexandria font from Google Fonts
+const alexandria = Alexandria({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-alexandria",
+  display: 'swap',
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,7 +27,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${alexandria.variable} ${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>
     </html>

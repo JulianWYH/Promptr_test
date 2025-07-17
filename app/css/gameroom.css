@@ -198,7 +198,7 @@
   margin: 0 auto;
 }
 
-.gameHeader {
+.roomGameHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -233,7 +233,7 @@
   font-size: clamp(0.9rem, 2vw, 1.1rem);
 }
 
-.gameContent {
+.roomGameContent {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: clamp(15px, 3vw, 20px);
@@ -610,7 +610,7 @@
 
 /* Extra large screens (1200px and up) - Large desktops */
 @media screen and (min-width: 1200px) {
-  .gameContent {
+  .roomGameContent {
     max-width: 1200px;
   }
   
@@ -619,39 +619,29 @@
     max-width: 1200px;
   }
   
-  .gameContent {
+  .roomGameContent {
     grid-template-columns: 300px 1fr;
   }
 }
 
 /* Large screens (992px to 1199px) - Desktops */
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-  .gameOptions {
-    grid-template-columns: 1fr 1fr;
-  }
-  
   .lobbyContent {
     grid-template-columns: 1fr 1fr;
   }
   
-  .gameContent {
+  .roomGameContent {
     grid-template-columns: 280px 1fr;
   }
 }
 
 /* Medium screens (768px to 991px) - Tablets and small laptops */
 @media screen and (min-width: 768px) and (max-width: 991px) {
-  .gameOptions {
-    grid-template-columns: 1fr;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  
   .lobbyContent {
     grid-template-columns: 1fr;
   }
   
-  .gameContent {
+  .roomGameContent {
     grid-template-columns: 1fr;
   }
   
@@ -675,7 +665,7 @@
     text-align: center;
   }
   
-  .gameHeader {
+  .roomGameHeader {
     flex-direction: column;
     text-align: center;
   }
@@ -685,7 +675,7 @@
     gap: 20px;
   }
   
-  .gameContent {
+  .roomGameContent {
     grid-template-columns: 1fr;
     gap: 15px;
   }
@@ -728,11 +718,11 @@
     padding: 10px;
   }
   
-  .gameContent, .gameComplete {
+  .roomGameContent, .gameComplete {
     padding: 20px 15px;
   }
   
-  .roomHeader, .gameHeader {
+  .roomHeader, .roomGameHeader {
     padding: 15px;
     margin-bottom: 15px;
   }
@@ -822,7 +812,6 @@
 
 /* Focus styles for better accessibility */
 @media (prefers-reduced-motion: no-preference) {
-  .gameBtn:focus,
   .startGameBtn:focus,
   .generateBtn:focus,
   .submitBtn:focus,

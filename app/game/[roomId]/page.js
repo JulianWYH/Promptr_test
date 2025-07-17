@@ -288,7 +288,7 @@ export default function GameRoom({ params }) {
   if (gameState === 'playing') {
     return (
       <div className="gameRoom playing">
-        <div className="gameHeader">
+        <div className="roomGameHeader">
           <div className="roundInfo">
             <h2>Round {currentRound} of {totalRounds}</h2>
             <div className="playerScore">Your Score: {players.find(p => p.name === playerName)?.score || 0}</div>
@@ -298,7 +298,7 @@ export default function GameRoom({ params }) {
           </div>
         </div>
 
-        <div className="gameContent">
+        <div className="roomGameContent">
           <div className="targetSection">
             <h3>🎯 Target Image</h3>
             <p>Recreate this image with your prompts!</p>

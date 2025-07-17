@@ -48,19 +48,19 @@ export default function GameLobby() {
 
   return (
     <div className="gameLobby">
-      <div className="gameContent">
-        <div className="gameHeader">
+      <div className="lobbyGameContent">
+        <div className="lobbyGameHeader">
           <h1>PROMPT WARS</h1>
           <h2>Image Mimic Challenge</h2>
           <p>Create better prompts than your friends to recreate target images!</p>
         </div>
 
         {!showNameInput ? (
-          <div className="gameOptions">
+          <div className="lobbyGameOptions">
             <div className="gameOptionCard">
               <h3>Create New Game</h3>
               <p>Start a new room and invite friends</p>
-              <button className="gameBtn create" onClick={handleCreateGameClick}>
+              <button className="lobbyGameBtn create" onClick={handleCreateGameClick}>
                 CREATE ROOM
               </button>
             </div>
@@ -68,7 +68,7 @@ export default function GameLobby() {
             <div className="gameOptionCard">
               <h3>Join Game</h3>
               <p>Enter a room code to join friends</p>
-              <button className="gameBtn join" onClick={handleJoinGameClick}>
+              <button className="lobbyGameBtn join" onClick={handleJoinGameClick}>
                 JOIN ROOM
               </button>
             </div>
@@ -108,14 +108,14 @@ export default function GameLobby() {
 
               <div className="setupButtons">
                 <button 
-                  className="gameBtn"
+                  className="lobbyGameBtn"
                   onClick={gameMode === 'create' ? handleCreateRoom : handleJoinRoom}
                   disabled={!playerName.trim() || (gameMode === 'join' && !roomCode.trim())}
                 >
                   {gameMode === 'create' ? 'CREATE ROOM' : 'JOIN ROOM'}
                 </button>
                 <button 
-                  className="gameBtn secondary"
+                  className="lobbyGameBtn secondary"
                   onClick={() => setShowNameInput(false)}
                 >
                   BACK
